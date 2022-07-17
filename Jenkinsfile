@@ -1,7 +1,18 @@
 pipeline {
   agent any
-    
-  tools {nodejs "node"}
+  stage("verify tooling") {
+      steps {
+        sh '''
+          docker version
+          docker info
+          docker-compose --version 
+          curl --version
+          
+        '''
+      }
+    }
+  
+ 
     
   stages {
         
