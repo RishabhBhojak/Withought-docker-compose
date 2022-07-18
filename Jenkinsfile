@@ -49,11 +49,10 @@ pipeline {
 
     stage('deployment') {
       steps {
-        sh 'oc login --token=sha256~lA2yP6kMsPhV2ZqwZWvhET7DRq5z2mQbLfAlln-Hk08 --server=https://api.ibmrosa-sp-0.otqj.p1.openshiftapps.com:6443'
+        sh 'oc login --token=sha256~BlDJKoKJRnrhOjj8IZJhituU26k1aqR5O8eijNZzdkw --server=https://c115-e.us-south.containers.cloud.ibm.com:32528'
         sh 'oc new-project myloadaaplication'
         sh 'oc project myloadaaplication'
-        sh 'oc run mongo --env MONGO_INITDB_ROOT_USERNAME=root --env MONGO_INITDB_ROOT_PASSWORD=example --port=27017 --image=mongo'
-        sh 'oc run myloadapplication --port=3000 --image=rishabhbhojak/mynodeimagefresh'
+        sh 'oc apply -f application'
         
       }
     
