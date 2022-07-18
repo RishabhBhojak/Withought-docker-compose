@@ -8,7 +8,7 @@ const app = express()
 const mongoose = require('mongoose')
 
 // Connecting to local MongoDB
-mongoose.connect("mongodb://root:example@my_db_rishabh:27017/db?authSource=admin", {
+mongoose.connect("mongodb://root:example@mongo:27017/db?authSource=admin", {
   useNewUrlParser: true
 });
 
